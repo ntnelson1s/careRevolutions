@@ -2,12 +2,11 @@
 
 export const homePage = () => ({
   home: {
-    message: 'Initial server reducer message',
     result: '',
     rows: [
-      ['', '', ''],
-      ['', '', ''],
-      ['', '', ''],
+      ['X', 'X', 'X'],
+      ['X', 'X', 'X'],
+      ['X', 'X', 'X'],
     ],
     turn: 'X',
     winner: undefined,

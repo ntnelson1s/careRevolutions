@@ -19,7 +19,7 @@ const HomePage = () =>
         { property: 'og:title', content: title },
       ]}
     />
-    <div className="row">
+    <div className="row text-center">
       <div className="col-12">
         <h1>{title}</h1>
         <Message />

@@ -9,7 +9,6 @@ import {
 } from '../action/hello'
 
 const initialState = Immutable.fromJS({
-  message: 'Initial server reducer message',
   result: '',
   rows: [
     ['', '', ''],
@@ -43,6 +42,7 @@ function checkWin(rows) {
 const helloReducer = (state: Immut = initialState, action: { type: string, payload: any }) => {
   switch (action.type) {
     case SAY_HELLO:
+      console.log(action)
       let rows = state.get('rows').toArray().map(e => e.toArray())
       const moves = rows.reduce((acc, row) => acc.concat(row), []).join('').length
       if (checkWin(rows)) return state.set('result', 'Winner!')

@@ -10,7 +10,7 @@ const mapStateToProps = () => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  handleClick: () => { dispatch(resetBoard('Hello!')) },
+  handleClick: () => { dispatch(resetBoard()) },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Reset)

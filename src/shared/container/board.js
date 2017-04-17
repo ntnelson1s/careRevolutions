@@ -3,14 +3,14 @@
 import { connect } from 'react-redux'
 
 import { sayHello } from '../action/hello'
-import Button from '../component/button'
+import Board from '../component/board'
 
-const mapStateToProps = () => ({
-  label: 'Say hello',
+const mapStateToProps = state => ({
+  rows: state.home.get('rows'),
 })
 
 const mapDispatchToProps = dispatch => ({
   handleClick: () => { dispatch(sayHello('Hello!')) },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Button)
+export default connect(mapStateToProps, mapDispatchToProps)(Board)
