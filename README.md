@@ -11,3 +11,6 @@ npm start in one terminal window && npm run dev:wds in another
     OR 
 
 yarn start && yarn dev:wds
+
+
+Nosey on over to localhost:8000
