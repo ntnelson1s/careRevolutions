@@ -12,13 +12,15 @@ const Board = ({ rows, handleClick }: Props) =>
   <div>
     {rows.map((e, i) =>
       <div
-        key={i}
+        key={'row' + i}
+        data-rend={'row' + i}
         className="text-center"
       >
         {e.toArray().map((f, j) =>
           <button
-            key={j}
-            onClick={handleClick}
+            key={'square' + j}
+            data-rend={'square' + j}
+            onClick={() => handleClick(i, j)}
             style={{
               height: '100px',
               width: '100px',

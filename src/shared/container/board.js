@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  handleClick: () => { dispatch(sayHello('Hello!')) },
+  handleClick: (a, b) => { dispatch(sayHello(`r${a}s${b}`)) },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board)

@@ -2,6 +2,7 @@
 
 import Immutable from 'immutable'
 import type { fromJS as Immut } from 'immutable'
+const { fromJS, isIndexed } = require('immutable')
 
 import {
   SAY_HELLO,
@@ -42,12 +43,17 @@ function checkWin(rows) {
 const helloReducer = (state: Immut = initialState, action: { type: string, payload: any }) => {
   switch (action.type) {
     case SAY_HELLO:
-      console.log(action)
       let rows = state.get('rows').toArray().map(e => e.toArray())
+      const turn = state.get('turn')
+      const row = Number(action.payload[1])
+      const square = Number(action.payload[3])
+      let move = rows[row][square]
+      if (move) return state
+      rows[row][square] = turn
       const moves = rows.reduce((acc, row) => acc.concat(row), []).join('').length
       if (checkWin(rows)) return state.set('result', 'Winner!')
       if (moves === 9) return state.set('result', 'Draw!')
-      return state.set('turn', state.get('turn') === 'X' ? 'O' : 'X')
+      return state.set('rows', fromJS(rows)).set('turn', state.get('turn') === 'X' ? 'O' : 'X')
     case RESET:
       return initialState
     default:
